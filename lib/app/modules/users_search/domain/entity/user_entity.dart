@@ -1,9 +1,9 @@
 class UserEntity {
-  String login;
+  String? login;
   int id;
   String nodeId;
-  String avatarUrl;
-  String gravatarUrl;
+  String? avatarUrl;
+  String gravatarId;
   String url;
   String htmlUrl;
   String followersUrl;
@@ -17,27 +17,28 @@ class UserEntity {
   String receivedEventsUrl;
   String type;
   bool siteAdmin;
-  String name;
-  String company;
-  String blog;
-  String location;
-  String email;
-  String hireable;
-  String bio;
-  String twitterUsername;
-  int publicRepos;
-  int publicGists;
-  int followers;
-  int following;
-  String createdAt;
-  String updatedAt;
+  String? name;
+  String? company;
+  String? blog;
+  String? location;
+  String? email;
+  String? hireable;
+  String? bio;
+  String? twitterUsername;
+  int? publicRepos;
+  int? publicGists;
+  int? followers;
+  int? following;
+  String? createdAt;
+  String? updatedAt;
+  bool isFavorite;
 
   UserEntity({
     required this.login,
     required this.id,
     required this.nodeId,
     required this.avatarUrl,
-    required this.gravatarUrl,
+    required this.gravatarId,
     required this.url,
     required this.htmlUrl,
     required this.followersUrl,
@@ -51,19 +52,24 @@ class UserEntity {
     required this.receivedEventsUrl,
     required this.type,
     required this.siteAdmin,
-    required this.name,
-    required this.company,
-    required this.blog,
-    required this.location,
-    required this.email,
-    required this.hireable,
-    required this.bio,
-    required this.twitterUsername,
-    required this.publicRepos,
-    required this.publicGists,
-    required this.followers,
-    required this.following,
-    required this.createdAt,
-    required this.updatedAt,
+    this.name,
+    this.company,
+    this.blog,
+    this.location,
+    this.email,
+    this.hireable,
+    this.bio,
+    this.twitterUsername,
+    this.publicRepos,
+    this.publicGists,
+    this.followers,
+    this.following,
+    this.createdAt,
+    this.updatedAt,
+    this.isFavorite = false,
   });
+
+  void toggleFavorite() {
+    isFavorite = !isFavorite;
+  }
 }
